@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#38BDBD"
+    tools:context="com.example.iotsolutions.servicenotifier.launch_activity"
+    >
+
+    <TextView
+
+        android:id="@+id/textView"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="SERVICE NOTIFIER"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#ffff"
+        android:textSize="30dp"
+        android:textStyle="bold|italic" />
+
+    <ImageView
+        android:layout_width="246dp"
+        android:layout_height="243dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/logo">
+
+    </ImageView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/rel3"
+        android:layout_marginBottom="22dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="©IoT Solutions,Pune."
+            android:textColor="#ffff"
+            android:textSize="13dp"
+            android:id="@+id/iot"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="iotsolutionz@gmail.com"
+            android:textColor="#ffff"
+            android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/iot"/>
+    </RelativeLayout>
+</android.widget.RelativeLayout>

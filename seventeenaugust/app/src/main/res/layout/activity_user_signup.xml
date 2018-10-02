@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.iotsolutions.servicenotifier.user_signup"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        app:theme="@style/MyCustomTheme"/>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/name_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        >
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/email_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail Id"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/password_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/con_pass_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <EditText
+            android:id="@+id/con_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rel2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <Button
+        android:id="@+id/verify_email1"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/submit"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/submit"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/button_file"
+        android:text="Verify Email"
+        android:textColor="#FFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="85dp"
+            android:gravity="center_horizontal">
+
+            <View
+                android:layout_width="110dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#D3D3D3" />
+
+            <TextView
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:text="OR"
+                android:textColor="#A9A9A9" />
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:background="#D3D3D3" />
+        </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/verify_email1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_file"
+        android:text="Submit"
+
+        />
+        <TextView
+            android:id="@+id/iot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="©IoT Solutions,Pune."
+            android:textColor="#000"
+            android:textSize="13dp"
+            android:layout_below="@id/submit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iot"
+            android:layout_centerHorizontal="true"
+            android:text="iotsolutionz@gmail.com"
+            android:textColor="#000"
+            android:textSize="15dp" />
+    </RelativeLayout>
+</LinearLayout>

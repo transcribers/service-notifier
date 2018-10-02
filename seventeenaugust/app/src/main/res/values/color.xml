@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#109696</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bgcolor">#fcfdfc</color>
+    <color name="btn_color">#53b2f5</color>
+    <color name="signup">#ff4081</color>
+    <color name="bg_of_dialog">#e5e7f2</color>
+    <color name="themeblue">#38BDBD</color>
+
+    <color name="buttonNotPressed">#86e4de</color>
+    <!-- Screens background -->
+    <color name="bg_screen1">#38BDBD</color>
+    <color name="bg_screen2">#38BDBD</color>
+    <color name="bg_screen3">#38BDBD</color>
+    <color name="bg_screen4">#38BDBD</color>
+
+    <!-- dots active colors -->
+    <color name="dot_active">#FF4081</color>
+
+
+    <!-- dots inactive colors -->
+    <color name="dot_inactive">#cccccc</color>
+
+
+
+
+
+
+    
+    <color name="circleBorder">#50FFFFFF</color>
+    <color name="gradEnd">#67EFC8</color>
+    <color name="gradStart">#63C9FF</color>
+
+
+    <color name="white">#FFFFFF</color>
+
+
+
+
+</resources>

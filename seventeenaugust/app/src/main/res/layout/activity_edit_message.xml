@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.iotsolutions.servicenotifier.EditMessage"
+
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        app:theme="@style/MyCustomTheme"/>
+
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/prodname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product(s) Name"
+        android:layout_marginTop="20dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp">
+
+        <EditText
+            android:id="@+id/prname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/offname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Offer Name"
+        android:layout_marginTop="10dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp">
+
+        <EditText
+            android:id="@+id/on"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/offper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Offer Period"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp">
+
+        <EditText
+            android:id="@+id/op"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Special Discount?"
+        android:id="@+id/sd"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        >
+        <EditText
+            android:id="@+id/spcldis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"/>
+
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/extra"
+        android:hint="Extra Information?"
+        android:paddingRight="25dp"
+        android:layout_marginLeft="25dp">
+
+        <EditText
+            android:id="@+id/extr"
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:inputType="text" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel2"
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:layout_marginTop="40dp">
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="264dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/button_file"
+            android:drawableLeft="@drawable/login1"
+            android:paddingLeft="10dp"
+            android:text="Send to all customers"
+            android:onClick="onClick"
+            android:textAlignment="center"
+            android:textColor="#FFF" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel3"
+        android:layout_width="match_parent"
+        android:layout_height="156dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="7dp">
+
+
+        <TextView
+            android:id="@+id/iot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="54dp"
+            android:text="©IoT Solutions,Pune."
+            android:textColor="#000"
+            android:textSize="13dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="iotsolutionz@gmail.com"
+            android:textColor="#000"
+            android:textSize="15dp" />
+    </RelativeLayout>
+
+
+</LinearLayout>

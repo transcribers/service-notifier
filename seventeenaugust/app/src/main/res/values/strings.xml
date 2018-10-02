@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Service Notifier</string>
+    <string name="seller_tokens">Seller_tokens</string>
+    <string name="company_name">Company Name</string>
+    <string name="phone">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="e_mail_id">E-mail Id</string>
+    <string name="dbnode_sellers">sellers</string>
+    <string name="data_type">data_type</string>
+    <string name="direct_message">direct_message</string>
+    <string name="data_title">title</string>
+    <string name="data_message">message</string>
+    <string name="default_notification_channel_id" translatable="false">com.example.iotsolutions.servicenotifier.default_notification_channel_id</string>
+    <string name="dbnode_tokens">tokens</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="start">Done</string>
+    <string name="title_slide1">Service Notifier</string>
+    <string name="desc_slide1">Sign up as Service Provider </string>
+    <string name="title_slide2"></string>
+    <string name="desc_slide2">If you are a service provider,add a customer in your account</string>
+    <string name="title_slide3"></string>
+    <string name="desc_slide3"> Add the products that require service, for your customer.</string>
+    <string name="title_slide4"></string>
+    <string name="desc_slide4">Customers will Sign in from their devices to receive notification</string>
+    <string name="service_provider">Service Provider</string>
+    <string name="customer">Customer</string>
+
+
+</resources>
