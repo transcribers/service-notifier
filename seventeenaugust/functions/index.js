@@ -258,7 +258,7 @@ exports.sendNotification = functions.database.ref('/sellers/{sellerId}/{messageI
 
       });
     }
-       ref.child('/sellers/{sellerId}/{messageId}').remove()
+       ref.child(`/sellers/${sellerId}/${messageId}`).remove()
         .then(response => {
           console.log(response  + " Succesful removal.");
       })
