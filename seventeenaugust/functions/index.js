@@ -19,6 +19,7 @@ admin.initializeApp();
 
 const ref = admin.database().ref();
 
+
 exports.sendnotif =  functions.https.onRequest((req,res) => {
   const array_prod = [];
   const names = [];
@@ -72,7 +73,7 @@ exports.sendnotif =  functions.https.onRequest((req,res) => {
               var customername = names[j];
               console.log(`Sending to: ${customername} , ${phonenum} for bye bye`);
 
-              const message1 = `Hi ${customername}! Your journey with us for ${productname} has ended with us.Thank you for your presence with us.`;
+              const message1 = `Hi ${customername}! Your journey with us for ${productname} has ended with us.Thank you.`;
                  ref.child("tokens").child(customerKeys[j]).once("value").then(ssnap => {
 
                  const token = ssnap.val();
@@ -108,7 +109,7 @@ exports.sendnotif =  functions.https.onRequest((req,res) => {
             }
           }
 
-          var calculated = add.addMonths(new Date(dateOfPurchase),service_period);
+              var calculated = add.addMonths(new Date(dateOfPurchase),service_period);
               
               if(today === calculated)
               {
@@ -141,43 +142,35 @@ exports.sendnotif =  functions.https.onRequest((req,res) => {
                    });     
              });  
 
- 
-                // ref.child("sellers").once("value").then(snapshot => {
-                //   snapshot.forEach(childshot => {
-                //     console.log(childshot);
-                //     var bool = childshot.child(customerKeys[j]).exists();
-                //     console.log(bool);
+                console.log("1)"+ customerKeys);
+               
+                ref.child(`customers/${customerKeys[j]}/sellerid`).once("value").then(datashot => {
+                    var sellerid = datashot.val();
                     
-                //     if(bool)
-                //     {
-                //       var sellerid = childshot.key;
-                //       console.log(sellerid);
-                //       ref.child("Seller_tokens").child(sellerid).once("value").then(sellersnap => {
-                //       token = sellersnap.val();
-                //       const seller_message = `Hi! Your customer ${customername} is due for service in 2 days for product:${productname}.`;
+                      ref.child("Seller_tokens").child(sellerid).once("value").then(sellersnap => {
+                      token = sellersnap.val();
+                      const seller_message = `Hi! Your customer ${customername} is due for service in 2 days for product:${productname}.`;
 
-                //                     console.log("Construction the notification message.");
-                //                     payload = {
-                //                     data: {
-                //                       data_type:"direct_message",
-                //                       title: "New message by Service App",
-                //                       message: seller_message
-                //                     }
-                //                   };
+                                    console.log("Construction the notification message.");
+                                    payload = {
+                                    data: {
+                                      data_type:"direct_message",
+                                      title: "New message by Service App",
+                                      message: seller_message
+                                    }
+                                  };
      
-                //                     admin.messaging().sendToDevice(token,  payload)
-                //                     .then(response => {
-                //                       console.log("Response:"+ JSON.stringify(response));
-                //                       })
-                //                       .catch(error  => {
-                //                       console.log("Error " + error);
-                //                       });    
-                //            });
-                //      }   //if that seller is the customers service provider
-                //   });
-                // }).catch(err => {
-                //    res.send(err);
-                // });
+                                    admin.messaging().sendToDevice(token,  payload)
+                                    .then(response => {
+                                      console.log("Response:"+ JSON.stringify(response));
+                                      })
+                                      .catch(error  => {
+                                      console.log("Error " + error);
+                                      });    
+                        });  
+                       //if that seller is the customers service provider
+                  });
+                
                 
                 var dateRef = ref.child(`customers/${customerKeys[j]}/products/${productkey}`);
                 dateRef.update({
@@ -214,6 +207,9 @@ exports.sendNotification = functions.database.ref('/sellers/{sellerId}/{messageI
 	const messageId = context.params.messageId;
   console.log("messageId: ", messageId);
   
+  
+  if(messageId.charAt(0) === '-')
+  {
   //get the message
 	const message = change.after.val();
 	console.log("message: ", message);
@@ -227,9 +223,12 @@ exports.sendNotification = functions.database.ref('/sellers/{sellerId}/{messageI
       console.log(key);
       if(!(sample.includes(key)))
       {carray.push(key);}
+
     });
+    console.log(carray);
     return carray;
   }).then(carray => {
+    console.log(carray);
     var i = 0;
     for(i = 0; i < carray.length ;i++)
     {
@@ -247,9 +246,10 @@ exports.sendNotification = functions.database.ref('/sellers/{sellerId}/{messageI
         };
         if(token)
         {
-        return admin.messaging().sendToDevice(token, payload)
+        admin.messaging().sendToDevice(token, payload)
               .then(function(response) {
                 console.log("Successfully sent message:", response);
+
                 })
                 .catch(function(error) {
                 console.log("Error sending message:", error);
@@ -258,15 +258,51 @@ exports.sendNotification = functions.database.ref('/sellers/{sellerId}/{messageI
 
       });
     }
-       ref.child(`/sellers/${sellerId}/${messageId}`).remove()
-        .then(response => {
-          console.log(response  + " Succesful removal.");
-      })
-      .catch(err => {
-        console.log(err + " Error caught when deleting");
-      });
+   return carray.length;
+  }).then(len => {
+
+  ref.child("Seller_tokens").child(sellerId).once("value").then(snaps => {
+    var tok = snaps.val();
+
+    console.log("Construction the notification message.");
+    const payloads = {
+      data: {
+        data_type: "direct_message",
+        title: "New Message from ",   ///////////////////
+        message: `Sent notifications to ${len} customers`,
+        message_id: messageId,
+      }
+    };
+    if(tok)
+    {
+    admin.messaging().sendToDevice(tok, payloads)
+          .then(function(response) {
+            console.log("Successfully sent message:", response);
+
+            })
+            .catch(function(error) {
+            console.log("Error sending message:", error);
+            });
+    }
+
   });
-			
+
+
+    ref.child(`/sellers/${sellerId}/${messageId}`).remove()
+    .then(response => {
+      console.log(response  + " Succesful removal.");
+  })
+  .catch(err => {
+    console.log(err + " Error caught when deleting");
+  });
+
+
+  });
+
+ 
+
+  }
+
 			//we have everything we need
 			//Build the message payload and send the message
 		

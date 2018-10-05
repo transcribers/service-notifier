@@ -214,6 +214,7 @@ public class user_signup extends AppCompatActivity implements View.OnClickListen
                     customer.setName(name.getText().toString());
                     customer.setEmail(email.getText().toString());
                     customer.setIsCustomer("customer");
+                    customer.setSellerid(sellerUid);
                     reference.child("customers")
                             .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(customer)

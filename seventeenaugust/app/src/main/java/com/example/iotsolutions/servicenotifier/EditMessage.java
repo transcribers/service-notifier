@@ -136,13 +136,5 @@ public class EditMessage extends AppCompatActivity {
 
 
 
-       /* ArrayList<String> values = new ArrayList<String>();
-        int[] ids = new int[]{R.id.on,R.id.op,R.id.spcldis,R.id.extr};//and so on
-
-        for(int id : ids){
-            EditText t = (EditText) findViewById(id);
-            values.add(t.getText().toString());
-        }*/
-
     }
 }

@@ -226,11 +226,6 @@ public class seller_sign_up extends AppCompatActivity implements View.OnClickLis
                 break;
             case com.example.iotsolutions.servicenotifier.R.id.submit:
 
-
-
-             // verify_email.setEnabled(false);
-             // submit.setEnabled(true);
-
                 FirebaseUser users=mAuth.getCurrentUser();
                 boolean emailVerified=users.isEmailVerified();
               //  users=mAuth.getCurrentUser().reload();
@@ -270,14 +265,9 @@ public class seller_sign_up extends AppCompatActivity implements View.OnClickLis
                             redirectLoginScreen();
                         }
                     });
-                        Intent intent3=new Intent(this,seller_sign_in.class);
-                        startActivity(intent3);
-
-
-                }
+                                        }
                 else{
                     Toast.makeText(seller_sign_up.this, "Please verify your email before submitting or Press once again.", Toast.LENGTH_SHORT).show();
-
 
                 }
                 break;

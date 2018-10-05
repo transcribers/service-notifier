@@ -25,6 +25,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 public class seller_sign_in extends AppCompatActivity implements View.OnClickListener {
 
@@ -139,6 +140,9 @@ public class seller_sign_in extends AppCompatActivity implements View.OnClickLis
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+
+
+
                                         Log.d(TAG, "100000000");
                                         FirebaseUser users = FirebaseAuth.getInstance().getCurrentUser();
                                         boolean emailVerified = users.isEmailVerified();
@@ -153,6 +157,7 @@ public class seller_sign_in extends AppCompatActivity implements View.OnClickLis
                                                                 Intent intent = new Intent(seller_sign_in.this, user_sign_in.class);
                                                                 if (mAuth.getCurrentUser() != null) {
                                                                     sellerUid = mAuth.getCurrentUser().getUid();
+                                                                    initFCM();
                                                                 }
                                                                 intent.putExtra("sellerUid", sellerUid);
                                                                 startActivity(intent);
@@ -248,5 +253,21 @@ public class seller_sign_in extends AppCompatActivity implements View.OnClickLis
                 // ...
             }
         };
+    }
+
+    private void initFCM()
+    {
+        Log.d(TAG,"Creating notification token:");
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG,"Sending token to server");
+
+        if(token != null) {
+            reference.child(getString(com.example.iotsolutions.servicenotifier.R.string.seller_tokens))
+                    .child(sellerUid)
+                    .setValue(token);
+        }else
+        {
+            Toast.makeText(seller_sign_in.this,"Seller id is null",Toast.LENGTH_LONG).show();
+        }
     }
 }
