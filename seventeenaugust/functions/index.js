@@ -47,9 +47,12 @@ exports.sendnotif =  functions.https.onRequest((req,res) => {
     const childSnap = snap.val();                 //childSnap has all customers
     //res.send(Object.keys(childSnap));
       Object.keys(childSnap).forEach(key/*customer*/ => {
+      if(childSnap[key].products)  
+      {
       array_prod.push(childSnap[key].products);  //array contains all customers' products
-      names.push(childSnap[key].name);       //names contains all customers' names
-      customerKeys.push(key)                 //customerKeys contains all customers' UIDs
+      names.push(childSnap[key].name);           //names contains all customers' names
+      customerKeys.push(key);                    //customerKeys contains all customers' UIDs
+      }                     
       });
       return array_prod;
     }).then(array_prod => {
